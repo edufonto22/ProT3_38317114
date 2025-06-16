@@ -26,6 +26,12 @@
 
 </style>
 
+<?php
+
+	$session = session();
+	$nombre = $session->get('nombre');
+	$perfil = $session->get('perfil_id');
+	?>
 
 			<div class="container-navbar">
 				<nav class="navbar navbar-expand-lg container">
@@ -40,11 +46,56 @@
 			<li><a href="blog">Blog</a></li>
 					</ul>
 
+					<?php if(session()->perfil_id == 1): ?>
+						
+							<div class="btn btn-secondary active btnUser btn-sm">
+								<a href=""> ADMIN: <?php echo session('nombre'); ?> </a>
+					         </div>
+
+						<div class="container-navbar">
+				<nav class="navbar navbar-expand-lg container">
+					<i class="fa-solid fa-bars"></i>
+					<ul class="menu">
+						<li><a href="principal">Inicio</a></li>
+						<li><a href="quienes_somos">Quienes Somos</a></li>
+            <li><a href="acerca_de">Acerca De</a></li>
+            <li class="nav-item"><a class="nav-link" href="registro">Registro</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/logout');?>" tabeindex="-1" aria-disabled="true">Cerrar sesión</a></li>
+            <li><a href="producto">Productos</a></li>
+			<li><a href="blog">Blog</a></li>
+					</ul>
+					</div>
+			<?php elseif(session()->perfil_id == 2): ?>
+				<div class="btn btn-info active btnUser btn-sm">
+					<a href="">CLIENTE: <?php echo session('nombre'); ?> </a>
+			</div>
+
+			<!--NAVBAR PARA CLIENTES que pueden comprar--->
+			<div class="container-navbar">
+				<nav class="navbar navbar-expand-lg container">
+					<i class="fa-solid fa-bars"></i>
+					<ul class="menu">
+						<li><a href="principal">Inicio</a></li>
+						<li><a href="quienes_somos">Quienes Somos</a></li>
+            <li><a href="acerca_de">Acerca De</a></li>
+            <li class="nav-item"><a class="nav-link" href="registro">Registro</a></li>
+            <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+            <li><a href="producto">Productos</a></li>
+			<li><a href="blog">Blog</a></li>
+					</ul>
+
+
+
+             <?php else:?>
+			<!--NAVBAR PARA CLIENTES NO LOGUEADOS--->
+				
 					<form class="search-form">
 						<input type="search" placeholder="Buscar..." />
 						<button class="btn-search">
 							<i class="fa-solid fa-magnifying-glass"></i>
 						</button>
+
+					<?php endif;?>
 					</form>
 				</nav>
 			</div>

@@ -17,10 +17,12 @@ $routes->get('blog', 'Home::blog');
 
 /*rutas del Registro de Usuarios */
 $routes->get('/registro', 'usuario_controller::create');
-$routes->get('/enviar-form', 'usuario_controller::formValidation');
+$routes->post('/enviar-form', 'usuario_controller::formValidation');
 
 /*rutas del Login */
 $routes->get('/login', 'Login_controller');
-$routes->get('/enviarlogin', 'Login_controller::auth');
+$routes->post('/enviarlogin', 'Login_controller::auth');
 $routes->get('/panel', 'Panel_controller::index',['filter'=> 'auth']);
 $routes->get('/logout', 'Login_controller::logout');
+
+
