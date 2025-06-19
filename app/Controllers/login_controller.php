@@ -56,7 +56,7 @@ class login_controller extends BaseController
                 //Si se cumple la verificación, inicia la sesión
                 $session->set($ses_data);
 
-                session()->setFlash('msg','Bienvenido!');
+                session()->setFlashdata('msg','Bienvenido!');
                 return redirect()->to('/panel');
                 //return redirect()->to('/prueba'); //pagina principal
             } else{

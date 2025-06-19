@@ -1,7 +1,6 @@
 <style>
-
 .menu {
-	display: flex; /* comportamiento normal */
+	display: flex;
 	gap: 2rem;
 }
 
@@ -22,83 +21,47 @@
 		display: flex;
 	}
 }
-
-
 </style>
 
 <?php
+$session = session();
+$perfil = $session->get('perfil_id');
+$nombre = $session->get('nombre');
+?>
 
-	$session = session();
-	$nombre = $session->get('nombre');
-	$perfil = $session->get('perfil_id');
-	?>
+<div class="container-navbar">
+	<nav class="navbar navbar-expand-lg container">
+		<i class="fa-solid fa-bars"></i>
 
-			<div class="container-navbar">
-				<nav class="navbar navbar-expand-lg container">
-					<i class="fa-solid fa-bars"></i>
-					<ul class="menu">
-						<li><a href="principal">Inicio</a></li>
-						<li><a href="quienes_somos">Quienes Somos</a></li>
-            <li><a href="acerca_de">Acerca De</a></li>
-            <li class="nav-item"><a class="nav-link" href="registro">Registro</a></li>
-            <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-            <li><a href="producto">Productos</a></li>
-			<li><a href="blog">Blog</a></li>
-					</ul>
+		<ul class="menu">
+			<li><a href="<?= base_url('principal') ?>">Inicio</a></li>
+			<li><a href="<?= base_url('quienes_somos') ?>">Quienes Somos</a></li>
+			<li><a href="<?= base_url('acerca_de') ?>">Acerca De</a></li>
+			<li><a href="<?= base_url('producto') ?>">Productos</a></li>
+			<li><a href="<?= base_url('blog') ?>">Blog</a></li>
 
-					<?php if(session()->perfil_id == 1): ?>
-						
-							<div class="btn btn-secondary active btnUser btn-sm">
-								<a href=""> ADMIN: <?php echo session('nombre'); ?> </a>
-					         </div>
+			<?php if ($perfil == 1): ?>
+				<li><a href="#">ADMIN: <?= esc($nombre) ?></a></li>
+				<li><a href="<?= base_url('/logout') ?>">Cerrar sesión</a></li>
 
-						<div class="container-navbar">
-				<nav class="navbar navbar-expand-lg container">
-					<i class="fa-solid fa-bars"></i>
-					<ul class="menu">
-						<li><a href="principal">Inicio</a></li>
-						<li><a href="quienes_somos">Quienes Somos</a></li>
-            <li><a href="acerca_de">Acerca De</a></li>
-            <li class="nav-item"><a class="nav-link" href="registro">Registro</a></li>
-            <li class="nav-item"><a class="nav-link" href="<?php echo base_url('/logout');?>" tabeindex="-1" aria-disabled="true">Cerrar sesión</a></li>
-            <li><a href="producto">Productos</a></li>
-			<li><a href="blog">Blog</a></li>
-					</ul>
-					</div>
-			<?php elseif(session()->perfil_id == 2): ?>
-				<div class="btn btn-info active btnUser btn-sm">
-					<a href="">CLIENTE: <?php echo session('nombre'); ?> </a>
-			</div>
+			<?php elseif ($perfil == 2): ?>
+				<li><a href="#">CLIENTE: <?= esc($nombre) ?></a></li>
+				<li><a href="<?= base_url('/logout') ?>">Cerrar sesión</a></li>
 
-			<!--NAVBAR PARA CLIENTES que pueden comprar--->
-			<div class="container-navbar">
-				<nav class="navbar navbar-expand-lg container">
-					<i class="fa-solid fa-bars"></i>
-					<ul class="menu">
-						<li><a href="principal">Inicio</a></li>
-						<li><a href="quienes_somos">Quienes Somos</a></li>
-            <li><a href="acerca_de">Acerca De</a></li>
-            <li class="nav-item"><a class="nav-link" href="registro">Registro</a></li>
-            <li class="nav-item"><a class="nav-link" href="login">Login</a></li>
-            <li><a href="producto">Productos</a></li>
-			<li><a href="blog">Blog</a></li>
-					</ul>
+			<?php else: ?>
+				<li><a href="<?= base_url('registro') ?>">Registro</a></li>
+				<li><a href="<?= base_url('login') ?>">Login</a></li>
+			<?php endif; ?>
+		</ul>
 
-
-
-             <?php else:?>
-			<!--NAVBAR PARA CLIENTES NO LOGUEADOS--->
-				
-					<form class="search-form">
-						<input type="search" placeholder="Buscar..." />
-						<button class="btn-search">
-							<i class="fa-solid fa-magnifying-glass"></i>
-						</button>
-
-					<?php endif;?>
-					</form>
-				</nav>
-			</div>
+		<form class="search-form ms-auto">
+			<input type="search" placeholder="Buscar..." />
+			<button class="btn-search">
+				<i class="fa-solid fa-magnifying-glass"></i>
+			</button>
+		</form>
+	</nav>
+</div>
 
 <script>
 	document.addEventListener('DOMContentLoaded', function () {
@@ -110,6 +73,7 @@
 		});
 	});
 </script>
+
 
 
 <!--

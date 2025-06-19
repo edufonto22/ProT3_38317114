@@ -12,29 +12,30 @@
     <?php endif; ?>
 
     <!-- Formulario -->
-    <form method="post" action="<?= base_url('/enviarlogin') ?>">
-      <div class="card-body">
-        <div class="mb-3">
-          <label for="correo" class="form-label fw-bold">Correo</label>
-          <input name="correo" type="email" class="form-control form-control-lg" placeholder="ejemplo@correo.com" required>
-        </div>
+   <form method="post" action="<?= base_url('/enviarlogin') ?>">
+  <div class="card-body">
+    <div class="mb-3">
+      <label for="email" class="form-label fw-bold">Correo</label>
+      <input name="email" type="email" class="form-control form-control-lg" placeholder="ejemplo@correo.com" required>
+    </div>
 
-        <div class="mb-3">
-          <label for="contraseña" class="form-label fw-bold">Contraseña</label>
-          <input name="contraseña" type="password" class="form-control form-control-lg" placeholder="••••••••" required>
-        </div>
+    <div class="mb-3">
+      <label for="pass" class="form-label fw-bold">Contraseña</label>
+      <input name="pass" type="password" class="form-control form-control-lg" placeholder="••••••••" required>
+    </div>
 
-        <div class="d-grid gap-2">
-          <input type="submit" value="Ingresar" class="btn btn-success btn-lg">
-          <a href="<?= base_url('login'); ?>" class="btn btn-outline-danger btn-lg">Cancelar</a>
-        </div>
+    <div class="d-grid gap-2">
+      <input type="submit" value="Ingresar" class="btn btn-success btn-lg">
+      <a href="<?= base_url('login'); ?>" class="btn btn-outline-danger btn-lg">Cancelar</a>
+    </div>
 
-        <div class="mt-3 text-center">
-          <span class="text-muted">¿Aún no se registró? 
-            <a href="<?= base_url('/registro'); ?>" class="text-primary fw-bold">Registrarse aquí</a>
-          </span>
-        </div>
-      </div>
-    </form>
+    <div class="mt-3 text-center">
+      <span class="text-muted">¿Aún no se registró? 
+        <a href="<?= base_url('/registro'); ?>" class="text-primary fw-bold">Registrarse aquí</a>
+      </span>
+    </div>
+  </div>
+</form>
+
   </div>
 </div>
