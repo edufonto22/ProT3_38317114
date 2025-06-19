@@ -1,6 +1,6 @@
 <?php
 namespace App\Controllers;
-Use App\Models\usuarios_model;
+Use App\Models\usuario_Model;
 use CodeIgniter\Controller;
 
 class Usuario_controller extends Controller{
@@ -13,8 +13,8 @@ class Usuario_controller extends Controller{
         
         $dato['titulo']='Registro';
         echo view('front/head_view',$dato);
-        echo view('front/nav_view');
-        echo view('front/usuari/registro');
+        echo view('front/navbar_view');
+        echo view('front/usuario/registro');
         echo view('front/footer_view');
 
     }
@@ -32,12 +32,13 @@ class Usuario_controller extends Controller{
         ],
 
     );
-     $formModel = new Usuarios_model();
 
-        if(!input) {
+     $formModel = new usuario_Model();
+
+        if(!$input) {
             $data['titulo']='Registro';
-             echo view('front/head_view',$dato);
-             echo view('front/nav_view');
+             echo view('front/head_view',$data);
+             echo view('front/navbar_view');
              echo view('back/usuario/registro', ['validation' => $this->validator]);
              echo view('front/footer_view');
 
@@ -45,16 +46,16 @@ class Usuario_controller extends Controller{
             $formModel->save([
                 'nombre' => $this->request->getVar('nombre'),
                 'apellido' => $this->request->getVar('apellido'),
-                'usuario' => $this->request->getVar('usuario'),
                 'email' => $this->request->getVar('email'),
+                'usuario' => $this->request->getVar('usuario'),
                 'pass' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT),
 
                 //password_hash() crea un nuevo hash de contraseña usando un algoritmo de hash de único sentido
             ]);
             //flashdata funciona solo en redirigir la funcion en el controlador en vista de carga.
 
-            session()->setFlashdata('sucess','Usuario registrado con exito');
-            return $this->response->redirect('/login'); 
+            session()->setFlashdata('success','Usuario registrado con exito');
+            return redirect->to('/login'); //$this->response->redirect('/login'); 
         }
 
     }

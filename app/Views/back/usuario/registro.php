@@ -5,8 +5,7 @@
             <h4>Registrarse</h4>
 
 <?php $validation = \Config\Services::validation(); ?>
-<form method= "post" action="<?php echp base_url('/enviar-form') ?>">
-    <?=csrf_field();?>
+<form method= "post" action="<?= base_url('/enviar-form') ?>">
     <?=csrf_field();?>
     <?php if(!empty (session()->getFlashdata('fail'))):?>
         <div class="alert alert-danger"><?=session()->getFlashdata('sucess');?></div>
@@ -27,7 +26,7 @@
     <div class="mb-3">
         <div class="form">
         <label for="exampleFormControlInput1" class="form-label">Apellido</label>
-        <input name="apellido" type="text" class="form-control" placeholder="nombre">
+        <input name="apellido" type="text" class="form-control" placeholder="apellido">
         <!--Error-->
 
         <?php if($validation->getError('apellido')) {?>

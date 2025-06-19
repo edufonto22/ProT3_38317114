@@ -85,7 +85,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Contraseña</label>
-                        <input name="contraseña" type="password" class="form-control" placeholder="Contraseña">
+                        <input name="pass" type="password" class="form-control" placeholder="Contraseña">
                         <?php if($validation->getError('contraseña')): ?>
                             <div class="alert alert-danger mt-2"><?= $validation->getError('contraseña'); ?></div>
                         <?php endif ?>
