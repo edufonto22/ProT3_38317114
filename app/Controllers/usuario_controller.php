@@ -21,7 +21,7 @@ class Usuario_controller extends Controller{
 
 
     public function formValidation(){
-
+              $session = session();
         $input = $this->validate([
             'nombre' => 'required|min_length[3]',
             'apellido' => 'required|min_length[3]|max_length[25]',
@@ -54,8 +54,8 @@ class Usuario_controller extends Controller{
             ]);
             //flashdata funciona solo en redirigir la funcion en el controlador en vista de carga.
 
-            session()->setFlashdata('success','Usuario registrado con exito');
-            return redirect->to('/login'); //$this->response->redirect('/login'); 
+            $session->setFlashdata('success','Usuario registrado con exito');
+            return redirect()->to('/login'); //$this->response->redirect('/login'); 
         }
 
     }

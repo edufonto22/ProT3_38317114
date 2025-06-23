@@ -10,7 +10,7 @@
 
 .carousel-item {
   position: relative;
-  height: 500px; /* o el alto que prefieras */
+  height: 500px; /* para modificar la altura del tamaño del carousel */
   overflow: hidden;
 }
 
@@ -26,7 +26,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* fondo semitransparente */
+  background-color: rgba(0, 0, 0, 0.4); /* fondo semitransparente del carousel*/
   color: white;
   display: flex;
   flex-direction: column;
@@ -1113,5 +1113,19 @@ A continuación, podés actualizarte acerca de las épocas de siembra y cosecha 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
   
+<!-- Script para popover -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var popoverTrigger = document.getElementById('popoverSuccess');
+  if (popoverTrigger) {
+    var popover = new bootstrap.Popover(popoverTrigger);
+    popover.show();
 
+    // Oculta el popover después de 3 segundos
+    setTimeout(() => {
+      popover.hide();
+    }, 3000);
+  }
+});
+</script>
 </body>
