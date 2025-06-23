@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-06-2025 a las 04:07:41
+-- Tiempo de generación: 23-06-2025 a las 03:42:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,15 +20,11 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `fontora_ed`
 --
-CREATE DATABASE IF NOT EXISTS `fontora_ed` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `fontora_ed`;
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `perfiles`
---
--- Creación: 13-06-2025 a las 20:04:37
 --
 
 CREATE TABLE `perfiles` (
@@ -49,8 +45,6 @@ INSERT INTO `perfiles` (`id_perfiles`, `descripcion`) VALUES
 --
 -- Estructura de tabla para la tabla `usuarios`
 --
--- Creación: 13-06-2025 a las 20:07:05
---
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
@@ -62,6 +56,17 @@ CREATE TABLE `usuarios` (
   `perfil_id` int(11) NOT NULL DEFAULT 2,
   `baja` varchar(2) NOT NULL DEFAULT 'NO'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `usuario`, `email`, `pass`, `perfil_id`, `baja`) VALUES
+(1, 'Edu', 'Fontora', 'random', 'random@correo.com', '$2y$10$A42ZsrNcyAYdwDl4m4fM6ufqRbrYoindFisFOoZYohSkduezA7sti', 2, 'NO'),
+(2, 'Roberto', 'Gomez', 'elchavo', 'elchavo@correo.com', '$2y$10$WVZX1Du5x7t8aBqnKRTxEeQbHwy9/oy0x41Ixg.ZuoqOWl/rjBAB2', 2, 'NO'),
+(19, 'edu', 'fontora', 'edu123', 'edu@correo.com', '$2y$10$U8k4s9qOgDmmjkbdliJWoe24gMhXZz5qV7bpzJhCDFWD/4ORbUeWu', 2, 'NO'),
+(20, 'edu', 'juan', 'eduju123', 'eduarju@correo.com', '$2y$10$hdkERrYov8j6Ud6R6IE4fevM/QjHT4VpJD5.CvCAgD7YOYYS78ETq', 2, 'NO'),
+(21, 'raul', 'gomez', 'rau123', 'rau@correo.com', '$2y$10$hUtmRGLv7zZcnocMgquWxemFvufx0zRhlHQn43DVykqmca3ReYUsW', 2, 'NO');
 
 --
 -- Índices para tablas volcadas
@@ -94,7 +99,7 @@ ALTER TABLE `perfiles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
