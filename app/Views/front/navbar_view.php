@@ -28,6 +28,9 @@ $session = session();
 $perfil = $session->get('perfil_id');
 $nombre = $session->get('nombre');
 ?>
+<?php if(session()->perfil_id == 1): ?>
+    <p>Estás logueado como ADMIN</p>
+<?php endif; ?>
 
 <div class="container-navbar">
 	<nav class="navbar navbar-expand-lg container">
@@ -40,8 +43,9 @@ $nombre = $session->get('nombre');
 			<li><a href="<?= base_url('producto') ?>">Productos</a></li>
 			<li><a href="<?= base_url('blog') ?>">Blog</a></li>
 
+
 			<?php if ($perfil == 1): ?>
-				<li><a href="#">ADMIN: <?= esc($nombre) ?></a></li>
+				<li><a href="<?= base_url('/admin') ?>">Administrar Usuarios</a></li>
 				<li><a href="<?= base_url('/logout') ?>">Cerrar sesión</a></li>
 
 			<?php elseif ($perfil == 2): ?>

@@ -25,4 +25,11 @@ $routes->post('/enviarlogin', 'login_controller::auth');
 $routes->get('/panel', 'Panel_controller::index',['filter'=> 'auth']);
 $routes->get('/logout', 'login_controller::logout');
 
+/*rutas para entrar como admin, eliminar y editar usuario */
+$routes->get('/admin', 'admin_controller::index', ['filter' => 'auth']);
+$routes->get('/admin/editar/(:num)', 'admin_controller::editar/$1', ['filter' => 'auth']);
+$routes->post('/admin/actualizar/(:num)', 'admin_controller::actualizar/$1', ['filter' => 'auth']);
+$routes->get('/admin/eliminar/(:num)', 'admin_controller::eliminar/$1', ['filter' => 'auth']);
+
+
 

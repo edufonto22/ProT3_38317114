@@ -57,7 +57,17 @@ class login_controller extends BaseController
                 $session->set($ses_data);
 
                 session()->setFlashdata('msg','Bienvenido!');
-                return redirect()->to('/panel');
+                  // Redirección según el perfil
+    if ($data['perfil_id'] == 1) {
+        // Perfil de Administrador
+        return redirect()->to('/admin');
+    } else if ($data['perfil_id'] == 2) {
+        // Perfil de Cliente
+        return redirect()->to('/mis_productos');
+    } else {
+        // Otro caso, redirigí a una página por defecto
+        return redirect()->to('/panel');
+    }
                 //return redirect()->to('/prueba'); //pagina principal
             } else{
                 //no paso la validación de la password
