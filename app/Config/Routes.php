@@ -30,6 +30,7 @@ $routes->get('/admin', 'admin_controller::index', ['filter' => 'auth']);
 $routes->get('/admin/editar/(:num)', 'admin_controller::editar/$1', ['filter' => 'auth']);
 $routes->post('/admin/actualizar/(:num)', 'admin_controller::actualizar/$1', ['filter' => 'auth']);
 $routes->get('/admin/eliminar/(:num)', 'admin_controller::eliminar/$1', ['filter' => 'auth']);
+$routes->post('admin/actualizar', 'admin_controller::actualizar');
 
 
 

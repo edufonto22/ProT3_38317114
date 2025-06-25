@@ -1,8 +1,9 @@
 <div class="container mt-4">
     <h2>Editar Usuario</h2>
     
-    <form action="<?= base_url('admin/actualizar/'.$usuario['id_usuario']) ?>" method="post">
-        <?= csrf_field() ?>
+   <form action="<?= base_url('admin/actualizar') ?>" method="post">
+    <?= csrf_field() ?>
+    <input type="hidden" name="id_usuario" value="<?= $usuario['id_usuario'] ?>">
         
         <div class="mb-3">
             <label class="form-label">Nombre</label>
